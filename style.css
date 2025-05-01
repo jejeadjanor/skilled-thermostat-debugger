@@ -11,6 +11,7 @@
   --cool-blue: #4458c3;
   --warm-red: #ec6062;
   --accent: #ffd7a8;
+  --yellow: #ffae33;
 }
 
 body,
@@ -270,7 +271,7 @@ svg.point {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .room {
@@ -390,4 +391,77 @@ span.room-status {
   /* border: solid 1px pink; */
   margin: 20px 0 0 0;
   color: #7c7c83;
+}
+
+
+.ac_room-control {
+  display: flex;
+  gap: 2rem;
+}
+
+#turnAllOnBtn,
+#openRoomModalBtn {
+  border: 1px solid var(--cool-blue);
+  padding: 1rem;
+  width: 160px;
+  border-radius: 26px;
+  color: white !important;
+  background-color: var(--cool-blue);
+
+}
+
+/* Modal backdrop */
+#addRoomModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0 ,0 , 0.6); /* semi-transparent black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal content box */
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+/* Modal inputs */
+.modal-content input {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border: 1px solid var(--text-secondary);
+  border-radius: 5px;
+}
+
+/* Modal button */
+.modal-content button {
+  padding: 0.6rem 1rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--text-secondary);
+  color: white;
+  cursor: pointer;
+}
+
+.modal-content button#closeModal {
+  background-color: var(--warm-red);
+}
+
+.modal-content button:hover {
+  opacity: 0.9;
+}
+
+@media screen {
+  
 }
