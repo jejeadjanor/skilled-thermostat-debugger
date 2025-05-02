@@ -288,15 +288,9 @@ defaultSettings.addEventListener("click", function (e) {});
 // Increase and decrease temperature
 document.getElementById("increase").addEventListener("click", () => {
   const room = rooms.find((currRoom) => currRoom.name === selectedRoom);
-  // const increaseRoomTemperature = room.increaseTemp;  //bug
-
+  
   if (room.currTemp < 32) {
     room.increaseTemp();
-    const increaseRoomTemperature = room.increaseTemp;
-    increaseRoomTemperature();
-    // var increaseRoomTemperature = room.increaseTemp();
-    // console.log(increaseRoomTemperature);
-
   }
 
   updateUI(room);
@@ -304,12 +298,9 @@ document.getElementById("increase").addEventListener("click", () => {
 
 document.getElementById("reduce").addEventListener("click", () => {
   const room = rooms.find((currRoom) => currRoom.name === selectedRoom);
-  // const decreaseRoomTemperature = room.decreaseTemp;  //bug
 
   if (room.currTemp > 10) {
     room.decreaseTemp();
-    const decreaseRoomTemperature = room.decreaseTemp;
-    decreaseRoomTemperature();
   }
 
   updateUI(room);
@@ -330,8 +321,6 @@ function updateUI(room) {
   document.querySelector(".currentTemp").innerText = `${room.currTemp}°`;
 }
 
-// const coolBtn = document.getElementById("cool");
-// const warmBtn = document.getElementById("warm");
 
 
 const inputsDiv = document.querySelector(".inputs");
