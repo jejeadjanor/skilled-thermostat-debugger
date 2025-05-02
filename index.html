@@ -116,12 +116,27 @@
 
             <span class="error"></span>
           </div>
+          <div class="ac_room-control">
+            <button id="turnAllOnBtn">TURN ON ALL ACS</button>
+            <button id="openRoomModalBtn">ADD ROOM</button>
+          </div>
         </div>
       </div>
 
-      <div
-        class="container rooms-control animate__animated animate__fadeIn"
-      ></div>
+      <div class="container rooms-control animate__animated animate__fadeIn"></div>
+
+      <!-- Add Room Modal -->
+       <div id="addRoomModal" class="modal hidden">
+          <div class="modal-content">
+            <h3>Add New Room</h3>
+            <input type="text" id="newRoomName" placeholder="Room Name"/>
+            <input type="text" id="newRoomImage" placeholder="Image URL"/>
+            <input type="time" id="newRoomStart"/>
+            <input type="time" id="newRoomEnd"/>
+            <button id="addRoomBtn">Add Room</button>
+            <button id="closeModal">Close</button>
+          </div>
+       </div>
     </div>
 
     <!-- Ionicons -->
