@@ -1,3 +1,8 @@
+/**
+ * @jest-environment jsdom
+ */
+
+
 //mock the main.js functions
 
 describe("Smart Thermostat App", () =>{
@@ -73,3 +78,44 @@ describe("Smart Thermostat App", () =>{
         expect(testRoom.airConditionerOn).toBe(false);
     });
 })
+
+describe('Temperature buttons', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+    <button id="increase"></button>
+    <button id="reduce"></button>
+    <span id="temp"></span>
+    `;
+  });
+
+  test('increase button triggers temperature increase', () =>{
+    const increaseBtn = document.getElementById('increase');
+    const tempDisplay = document.getElementById('temp');
+
+    let room = {currTemp: 22, increaseTemp() { this.currTemp++}};
+    increaseBtn.addEventListener('click', () => {
+      room.increaseTemp();
+      tempDisplay.textContent = `${room.currTemp}°`
+    });
+
+    increaseBtn.click();
+    expect(room.currTemp).toBe(23);
+    expect(tempDisplay.textContent).toBe('23°');
+  });
+
+
+  test('reduce button triggers temperature decrease', () => {
+    const increaseBtn = document.getElementById('reduce');
+    const tempDisplay = document.getElementById('temp');
+
+    let room = {currTemp: 22, decreaseTemp() { this.currTemp--}};
+    increaseBtn.addEventListener('click', () => {
+      room.decreaseTemp();
+      tempDisplay.textContent = `${room.currTemp}°`
+    });
+
+    increaseBtn.click();
+    expect(room.currTemp).toBe(21);
+    expect(tempDisplay.textContent).toBe('21°');
+  });
+});
